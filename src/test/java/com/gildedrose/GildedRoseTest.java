@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
 
-	private final String sulfuras = "Sulfuras, Hand of Ragnaros";
-	private final String aged = "Aged Brie";
-	private final String backstage = "Backstage passes to a TAFKAL80ETC concert";
-	private final String elixir = "Elixir of the Mongoose";
+    private final String sulfuras = "Sulfuras, Hand of Ragnaros";
+    private final String aged = "Aged Brie";
+    private final String backstage = "Backstage passes to a TAFKAL80ETC concert";
+    private final String elixir = "Elixir of the Mongoose";
 
-	@Test
+    @Test
     void testGlideRoseIfNameIsNotAgedOrBackstageOrSulfurasAndSellInMoreThanZero() {
     	Item[] items = new Item[] { new Item(elixir, 5, 40) };
         GildedRose app = new GildedRose(items);
@@ -20,7 +20,7 @@ class GildedRoseTest {
         assertEquals(elixir, app.items[0].name);
         assertEquals(4, app.items[0].sellIn);
     }
-	@Test
+    @Test
     void testGlideRoseIfNameIsNotAgedOrBackstageOrSulfurasAndSellInLessThanOne() {
     	Item[] items = new Item[] { new Item(elixir, 0, 40) };
         GildedRose app = new GildedRose(items);
