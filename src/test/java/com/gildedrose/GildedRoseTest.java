@@ -10,7 +10,7 @@ class GildedRoseTest {
     private final String AGED = "Aged Brie";
     private final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
     private final String ELIXIR = "Elixir of the Mongoose";
-
+    private final String CONJURED = "Conjured Mana Cake";
     @Test
     void testGlideRoseIfNameIsNotAgedOrBackstageOrSulfurasAndSellInMoreThanZero() {
     	Item[] items = new Item[] { ItemFactory.getItem(ELIXIR, 5, 40) };
@@ -120,5 +120,23 @@ class GildedRoseTest {
         assertEquals(0, app.items[0].quality);
         assertEquals(BACKSTAGE, app.items[0].name);
         assertEquals(-1, app.items[0].sellIn);
-    }    
+    }
+    @Test
+    void testGlideRoseIfNameIsConjuredAndSellInMoreThanZero() {
+    	Item[] items = new Item[] { ItemFactory.getItem(CONJURED, 5, 40) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(38, app.items[0].quality);
+        assertEquals(CONJURED, app.items[0].name);
+        assertEquals(4, app.items[0].sellIn);
+    }
+    @Test
+    void testGlideRoseIfNameIsConjuredAndSellInLessThanOne() {
+    	Item[] items = new Item[] { ItemFactory.getItem(CONJURED, 0, 40) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(36, app.items[0].quality);
+        assertEquals(CONJURED, app.items[0].name);
+        assertEquals(-1, app.items[0].sellIn);
+    }
 }

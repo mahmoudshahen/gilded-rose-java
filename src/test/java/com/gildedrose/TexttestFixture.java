@@ -14,7 +14,7 @@ public class TexttestFixture {
         		ItemFactory.getItem("Backstage passes to a TAFKAL80ETC concert", 10, 49),
         		ItemFactory.getItem("Backstage passes to a TAFKAL80ETC concert", 5, 49),
                 // this conjured item does not work properly yet
-        		ItemFactory.getItem("Conjured Mana Cake", 0, 6) };
+        		ItemFactory.getItem("Conjured Mana Cake", 3, 6) };
 
         GildedRose app = new GildedRose(items);
 
